@@ -1,0 +1,6 @@
+int[2] a;
+
+void main(){
+ int a;
+  a = 2;
+}

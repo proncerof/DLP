@@ -1,0 +1,26 @@
+// * Global variables
+int i,n;
+char c;
+struct {
+  int intField;
+  double realField;
+} record;
+
+// * Functions
+double f(int a, double c) {
+  double real;
+ if(1){
+  real = c;
+  } else
+  return 1.3;
+  i = a;
+  
+  return 2.2;
+}
+
+// * Main program
+void main() {
+  int i;
+  double r;
+  write i, f(n,r), record.intField, record.realField;
+}

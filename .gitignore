@@ -1,63 +1,49 @@
-*.class
+.metadata
+bin/
+tmp/
+*.tmp
+*.bak
+*.swp
+*~.nib
+local.properties
+.settings/
+.loadpath
+.recommenders
 
-# Mobile Tools for Java (J2ME)
-.mtj.tmp/
+# External tool builders
+.externalToolBuilders/
 
-# Package Files #
-*.jar
-*.war
-*.ear
+# Locally stored "Eclipse launch configurations"
+*.launch
 
-# virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
-hs_err_pid*
+# PyDev specific (Python IDE for Eclipse)
+*.pydevproject
 
-# =========================
-# Operating System Files
-# =========================
+# CDT-specific (C/C++ Development Tooling)
+.cproject
 
-# OSX
-# =========================
+# Java annotation processor (APT)
+.factorypath
 
-.DS_Store
-.AppleDouble
-.LSOverride
+# PDT-specific (PHP Development Tools)
+.buildpath
 
-# Thumbnails
-._*
+# sbteclipse plugin
+.target
 
-# Files that might appear in the root of a volume
-.DocumentRevisions-V100
-.fseventsd
-.Spotlight-V100
-.TemporaryItems
-.Trashes
-.VolumeIcon.icns
+# Tern plugin
+.tern-project
 
-# Directories potentially created on remote AFP share
-.AppleDB
-.AppleDesktop
-Network Trash Folder
-Temporary Items
-.apdisk
+# TeXlipse plugin
+.texlipse
 
-# Windows
-# =========================
+# STS (Spring Tool Suite)
+.springBeans
 
-# Windows image file caches
-Thumbs.db
-ehthumbs.db
+# Code Recommenders
+.recommenders/
 
-# Folder config file
-Desktop.ini
-
-# Recycle Bin used on file shares
-$RECYCLE.BIN/
-
-# Windows Installer files
-*.cab
-*.msi
-*.msm
-*.msp
-
-# Windows shortcuts
-*.lnk
+# Scala IDE specific (Scala & Java development for Eclipse)
+.cache-main
+.scala_dependencies
+.worksheet
