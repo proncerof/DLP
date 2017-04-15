@@ -9,6 +9,7 @@ import visitor.Visitor;
 public class FuncDefinition extends AbstractDefinition {
 
 	private List<Statement> statements;
+	private int totalBytes;
 
 	public FuncDefinition(int row, int column, String name, Type type, List<Statement> statements) {
 		super(row, column, type, name);
@@ -17,6 +18,14 @@ public class FuncDefinition extends AbstractDefinition {
 
 	public List<Statement> getStatements() {
 		return statements;
+	}
+
+	public void setTotalBytes(int bytes) {
+		this.totalBytes = bytes;
+	}
+
+	public int getTotalBytes() {
+		return totalBytes;
 	}
 
 	@Override

@@ -1,0 +1,141 @@
+#source "input.txt"
+	' * char c offset (0)
+	' * int a offset (1)
+	' * Real r offset (3)
+' Invocation to the main function
+call main
+halt
+main:
+enter 4
+
+#line 6
+	' * int a offset (-2)
+	' * int i offset (-4)
+
+#line 8
+	pusha 0
+	pushb 97
+	storeb
+
+#line 9
+	pusha 0
+	loadb
+	outb
+	pushb 10
+	outb
+
+#line 11
+	push bp
+	push -2
+	addi
+	push 1
+	storei
+
+#line 12
+	push bp
+	push -4
+	addi
+	pushb 48
+	b2i
+	push 3
+	muli
+	storei
+
+#line 13
+	push bp
+	push -2
+	addi
+	loadi
+	outi
+	pushb 32
+	outb
+	push bp
+	push -4
+	addi
+	loadi
+	outi
+	pushb 10
+	outb
+
+#line 15
+	pusha 3
+	inf
+	storef
+
+#line 16
+	push 2
+	i2f
+	pusha 3
+	loadf
+	mulf
+	outf
+	pushb 10
+	outb
+
+#line 21
+	push 3
+	i2f
+	pushf 4.5
+	subf
+	outf
+	pushb 32
+	outb
+	pushb 48
+	b2i
+	i2f
+	pushf 48.0
+	divf
+	outf
+	pushb 32
+	outb
+	pushb 48
+	b2i
+	pushb 49
+	b2i
+	modi
+	outi
+	pushb 32
+	outb
+	pushb 48
+	b2i
+	pushb 49
+	b2i
+	addi
+	outi
+	pushb 10
+	outb
+
+#line 27
+	push 1
+	push 2
+	lti
+	outi
+	pushb 32
+	outb
+	push 4
+	push 3
+	gei
+	outi
+	pushb 32
+	outb
+	push 5
+	push 5
+	eqi
+	outi
+	pushb 32
+	outb
+	push 1
+	push 2
+	outi
+	pushb 32
+	outb
+	push 0
+	push 3
+	or	outi
+	pushb 32
+	outb
+	push 0
+	not	outi
+	pushb 10
+	outb
+	ret 0, 4, 0

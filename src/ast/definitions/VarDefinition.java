@@ -19,7 +19,6 @@ public class VarDefinition extends AbstractDefinition implements Statement {
 
 	public void setOffset(int offset) {
 		this.offset = offset;
-		System.out.println(getName()+": "+offset);
 	}
 
 	@Override

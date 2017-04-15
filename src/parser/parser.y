@@ -18,8 +18,8 @@ import java.util.*;
 %token VOID RETURN MAIN STRUCT IF ELSE WHILE READ WRITE
 %token AND OR EQUALS LTOE GTOE NOTEQUALS
 
-%nonassoc IFX
-%nonassoc ELSE
+%nonassoc IFX CAST
+%nonassoc ELSE FIELD
 %right '=' 
 %left AND OR '!'
 %left '>' GTOE '<' LTOE NOTEQUALS EQUALS
@@ -183,10 +183,10 @@ expression: expression '+' expression					{$$ = new Arithmetic(scanner.getLine()
           | expression AND expression  					{$$ = new Logical(scanner.getLine(), scanner.getColumn(),(Expression)$1,"$$",(Expression)$3);}
           | expression '>' expression  					{$$ = new Comparison(scanner.getLine(), scanner.getColumn(),(Expression)$1,">",(Expression)$3);}
           | expression '<'expression  					{$$ = new Comparison(scanner.getLine(), scanner.getColumn(),(Expression)$1,"<",(Expression)$3);}
-          | expression'.'ID								{$$ = new FieldAccess(scanner.getLine(), scanner.getColumn(),(Expression)$1,(String)$3);}
+          | expression'.'ID			%prec FIELD 	    {$$ = new FieldAccess(scanner.getLine(), scanner.getColumn(),(Expression)$1,(String)$3);}
           | expression '[' expression ']'				{$$ = new Indexing(scanner.getLine(), scanner.getColumn(),(Expression)$1,(Expression)$3);}
           | '(' expression ')'							{$$ = $2;}
-          | '(' built_in_type ')' expression			{$$ = new Cast(scanner.getLine(), scanner.getColumn(),(Type)$2,(Expression)$4);}
+          | '(' built_in_type ')' expression %prec CAST	{$$ = new Cast(scanner.getLine(), scanner.getColumn(),(Type)$2,(Expression)$4);}
           | function_invocation							{$$ = $1;}
           | CHAR_CONSTANT								{$$ = new CharLiteral(scanner.getLine(),scanner.getColumn(),(char)$1);}
           | INT_CONSTANT								{$$ = new IntLiteral(scanner.getLine(),scanner.getColumn(),(int)$1);}

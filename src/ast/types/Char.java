@@ -76,5 +76,23 @@ public class Char extends AbstractType {
 		return 1;
 	}
 	
+	@Override
+	public boolean isPrimitive() {
+		return true;
+	}
+	
+	@Override
+	public char suffix() {
+		return 'b';
+	}
+	
+	@Override
+	public Type castTo(Type t) {
+		if(t.isPrimitive())
+			return t;
+		return null;
+	}
+	
+	
 	
 }

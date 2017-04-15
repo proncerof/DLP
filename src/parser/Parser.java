@@ -179,7 +179,9 @@ public final static short LTOE=276;
 public final static short GTOE=277;
 public final static short NOTEQUALS=278;
 public final static short IFX=279;
-public final static short UNARY_MINUS=280;
+public final static short CAST=280;
+public final static short FIELD=281;
+public final static short UNARY_MINUS=282;
 public final static short YYERRCODE=256;
 final static short yylhs[] = {                           -1,
     0,    2,    1,    1,    1,    5,    5,    5,    5,    7,
@@ -217,7 +219,7 @@ final static short yydefred[] = {                         5,
     0,    0,   33,   36,   70,    0,   37,    0,    0,    0,
    35,   34,    0,   62,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,   60,
-   69,    0,    0,    0,   63,   61,   30,   41,    0,   32,
+   69,    0,    0,    0,    0,   61,   30,   41,    0,   32,
     0,    0,   40,   38,
 };
 final static short yydgoto[] = {                          1,
@@ -241,7 +243,7 @@ final static short yysindex[] = {                         0,
   419,  -20,    0,    0,    0,  169,    0,  121,  128,  419,
     0,    0,  419,    0,  283,  283,   69,   69,   69,   69,
   224,   69,   69,  503,  503,  -32,  -32,  -32,  162,    0,
-    0,  185,  185,  224,    0,    0,    0,    0,  -25,    0,
+    0,  185,  185,  224,  224,    0,    0,    0,  -25,    0,
   223,  185,    0,    0,
 };
 final static short yyrindex[] = {                         0,
@@ -260,7 +262,7 @@ final static short yyrindex[] = {                         0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,  424,  564,  410,  470,  492,  529,
   200,  542,  551,  417,  482,    1,   27,   36,    0,    0,
-    0,    0,    0,    6,    0,    0,    0,    0,  309,    0,
+    0,    0,    0,    6,  555,    0,    0,    0,  309,    0,
     0,    0,    0,    0,
 };
 final static short yygindex[] = {                         0,
@@ -332,12 +334,12 @@ yytable = new short[]{                         68,
   112,    0,   52,   87,  125,   39,   39,   39,   86,   55,
     0,   39,   55,   39,   46,    0,   39,    0,   39,   39,
    39,    0,   58,    0,   53,   58,    0,   55,   55,   55,
-   55,   59,    0,  121,   59,    0,    0,    0,    0,    0,
+   55,   59,    0,  121,   59,   63,    0,    0,   63,    0,
    58,   58,   58,   58,   56,    0,    0,   56,    0,   59,
-   59,   59,   59,    0,    0,    0,    0,    0,    0,    0,
+   59,   59,   59,   63,    0,   63,    0,    0,    0,    0,
     0,   55,   56,    0,   56,    0,    0,    0,    0,    0,
     0,    0,    0,    0,   58,    0,   76,   77,   78,    3,
-    4,    5,   79,   59,    0,    0,    0,    0,    0,    0,
+    4,    5,   79,   59,    0,    0,    0,   63,    0,    0,
     0,    0,    0,    0,    0,    0,   56,    0,    0,    0,
     0,    0,    0,    0,    0,    0,    0,    0,    0,    0,
     0,    0,    0,    0,    0,   76,   77,   78,    0,    0,
@@ -422,12 +424,12 @@ yycheck = new short[] {                         37,
   278,   -1,   93,   40,   41,  257,  258,  259,   45,   41,
    -1,  263,   44,  265,   93,   -1,  268,   -1,  270,  271,
   272,   -1,   41,   -1,   93,   44,   -1,   59,   60,   61,
-   62,   41,   -1,   91,   44,   -1,   -1,   -1,   -1,   -1,
+   62,   41,   -1,   91,   44,   41,   -1,   -1,   44,   -1,
    59,   60,   61,   62,   41,   -1,   -1,   44,   -1,   59,
-   60,   61,   62,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
+   60,   61,   62,   59,   -1,   61,   -1,   -1,   -1,   -1,
    -1,   93,   59,   -1,   61,   -1,   -1,   -1,   -1,   -1,
    -1,   -1,   -1,   -1,   93,   -1,  257,  258,  259,  260,
-  261,  262,  263,   93,   -1,   -1,   -1,   -1,   -1,   -1,
+  261,  262,  263,   93,   -1,   -1,   -1,   93,   -1,   -1,
    -1,   -1,   -1,   -1,   -1,   -1,   93,   -1,   -1,   -1,
    -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,   -1,
    -1,   -1,   -1,   -1,   -1,  257,  258,  259,   -1,   -1,
@@ -450,7 +452,7 @@ yycheck = new short[] {                         37,
 };
 }
 final static short YYFINAL=1;
-final static short YYMAXTOKEN=280;
+final static short YYMAXTOKEN=282;
 final static String yyname[] = {
 "end-of-file",null,null,null,null,null,null,null,null,null,null,null,null,null,
 null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
@@ -471,7 +473,7 @@ null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,null,
 null,null,null,null,null,null,null,null,null,"INT_CONSTANT","CHAR_CONSTANT",
 "REAL_CONSTANT","INT","DOUBLE","CHAR","ID","VOID","RETURN","MAIN","STRUCT","IF",
 "ELSE","WHILE","READ","WRITE","AND","OR","EQUALS","LTOE","GTOE","NOTEQUALS",
-"IFX","UNARY_MINUS",
+"IFX","CAST","FIELD","UNARY_MINUS",
 };
 final static String yyrule[] = {
 "$accept : final",
@@ -590,7 +592,7 @@ private ASTNode ast;
 public ASTNode getAST(){
 	return ast;
 }
-//#line 530 "Parser.java"
+//#line 532 "Parser.java"
 //###############################################################
 // method: yylexdebug : check lexer state
 //###############################################################
@@ -1090,7 +1092,7 @@ case 73:
 //#line 205 "../../src/parser/parser.y"
 {yyval = Real.getInstance();}
 break;
-//#line 1025 "Parser.java"
+//#line 1027 "Parser.java"
 //########## END OF USER-SUPPLIED ACTIONS ##########
     }//switch
     //#### Now let's reduce... ####

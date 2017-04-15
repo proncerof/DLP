@@ -78,6 +78,11 @@ public class TypeCheckingVisitor extends AbstractVisitor {
 		c.getExpression().accept(this, o);
 		c.getCastType().accept(this, o);
 		c.setLValue(false);
+
+		c.setType(c.getExpression().getType().castTo(c.getCastType()));
+		if (c.getType() == null)
+			c.setType(
+					new ErrorType(c, "You cannot cast from " + c.getExpression().getType() + " to " + c.getCastType()));
 		return null;
 	}
 
@@ -116,7 +121,7 @@ public class TypeCheckingVisitor extends AbstractVisitor {
 		i.getLeft().accept(this, o);
 		i.getRight().accept(this, o);
 		i.setLValue(true);
-		
+
 		i.setType(i.getLeft().getType().indexing(i.getRight().getType()));
 		if (i.getType() == null)
 			new ErrorType(i, "Invalid indexing value");
@@ -162,9 +167,11 @@ public class TypeCheckingVisitor extends AbstractVisitor {
 	public Object visit(UnaryNot u, Object o) {
 		u.getExpression().accept(this, o);
 		u.setLValue(false);
-
-		if(!u.getExpression().getType().isLogical())
-		    new ErrorType(u,"You can not negate a non logical operation");
+		
+		if (!u.getExpression().getType().isLogical())
+			u.setType(new ErrorType(u, "You can not negate a non logical operation"));
+		else
+			u.setType(Int.getInstance());
 		return null;
 	}
 
@@ -182,16 +189,11 @@ public class TypeCheckingVisitor extends AbstractVisitor {
 		if (!w.getExpression().getType().isLogical())
 			w.getExpression().setType(new ErrorType(w.getExpression(), "The condition is not logical"));
 
-		boolean hasReturn = false;
-		for(Statement s : w.getStatements()){
-			Object hasReturnObject = s.accept(this, o);
-			if (hasReturnObject != null)
-				if((boolean)hasReturnObject)
-					hasReturn = true;
-		    s.accept(this, o);
+		for (Statement s : w.getStatements()) {
+			s.accept(this, o);
 		}
-		
-		return hasReturn;
+
+		return null;
 	}
 
 	@Override
@@ -218,16 +220,15 @@ public class TypeCheckingVisitor extends AbstractVisitor {
 		for (Statement s : f.getStatements()) {
 			Object hasReturnObject = s.accept(this, returnType);
 			if (hasReturnObject != null)
-				if((boolean)hasReturnObject)
+				if ((boolean) hasReturnObject)
 					hasReturn = true;
 		}
-		
-		if(!hasReturn && !(returnType instanceof VoidType))
-			new ErrorType(f,"Return expected");
-		else
-			if(hasReturn && (returnType instanceof VoidType))
-				new ErrorType(f,"No return expected");
-			
+
+		if (!hasReturn && !(returnType instanceof VoidType))
+			new ErrorType(f, "Return expected");
+		else if (hasReturn && (returnType instanceof VoidType))
+			new ErrorType(f, "No return expected");
+
 		return null;
 	}
 

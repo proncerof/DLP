@@ -62,4 +62,19 @@ public abstract class AbstractType extends AbstractASTNode implements Type {
 		return null;
 	}
 
+	@Override
+	public Type castTo(Type t) {
+		return null;
+	}
+
+	@Override
+	public boolean isPrimitive() {
+		return false;
+	}
+
+	@Override
+	public char suffix() {
+		return 0;
+	}
+
 }

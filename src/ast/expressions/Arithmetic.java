@@ -6,13 +6,13 @@ import visitor.Visitor;
 public class Arithmetic extends AbstractExpression{
 
 	private Expression left, right;
-	private String operand;
+	private String operator;
 
 	public Arithmetic(int row, int column, Expression left, String operand, Expression right) {
 		super(row, column);
 		this.left = left;
 		this.right = right;
-		this.operand = operand;
+		this.operator = operand;
 	}
 
 	public Expression getLeft() {
@@ -23,13 +23,13 @@ public class Arithmetic extends AbstractExpression{
 		return right;
 	}
 
-	public String getOperand() {
-		return operand;
+	public String getOperator() {
+		return operator;
 	}
 
 	@Override
 	public String toString() {
-		return left + " " +operand+ " "+right;
+		return left + " " +operator+ " "+right;
 	}
 	
 	@Override

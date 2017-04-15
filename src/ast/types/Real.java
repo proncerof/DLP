@@ -28,31 +28,31 @@ public class Real extends AbstractType {
 	public Object accept(Visitor v, Object o) {
 		return v.visit(this, o);
 	}
-	
+
 	@Override
 	public Type arithmetic(Type t) {
 		if (t instanceof Real || t instanceof Int || t instanceof Char)
-            return Real.getInstance();
+			return Real.getInstance();
 
-        return null;
+		return null;
 	}
-	
+
 	@Override
 	public Type arithmetic() {
 		return Real.getInstance();
 	}
-	
+
 	@Override
 	public Type comparison(Type t) {
 		if (t instanceof Real || t instanceof Int || t instanceof Char)
-            return Int.getInstance();
+			return Int.getInstance();
 
 		return null;
 	}
-	
+
 	@Override
 	public Type promotesTo(Type t) {
-		if(t instanceof Real)
+		if (t instanceof Real)
 			return t;
 		return super.promotesTo(t);
 	}
@@ -61,7 +61,22 @@ public class Real extends AbstractType {
 	public int numerberOfBytes() {
 		return 4;
 	}
-	
-	
+
+	@Override
+	public boolean isPrimitive() {
+		return true;
+	}
+
+	@Override
+	public char suffix() {
+		return 'f';
+	}
+
+	@Override
+	public Type castTo(Type t) {
+		if (t.isPrimitive())
+			return t;
+		return null;
+	}
 
 }

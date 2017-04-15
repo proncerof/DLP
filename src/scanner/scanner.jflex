@@ -73,10 +73,6 @@ struct 					{this.yylval = yytext();
 							return Parser.STRUCT;}
 if						{this.yylval = yytext(); 
 							return Parser.IF;}
-write					{this.yylval = yytext(); 
-							return Parser.WRITE;}
-read					{this.yylval = yytext(); 
-							return Parser.READ;}
 
 else					{this.yylval = yytext(); 
 							return Parser.ELSE;}

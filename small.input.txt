@@ -1,6 +1,8 @@
-int[2] a;
+struct {
+ int a;
+} b;
 
 void main(){
- int a;
-  a = 2;
+ double c;
+  c = (double) b.a;
 }

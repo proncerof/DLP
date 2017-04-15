@@ -36,6 +36,8 @@ public class OffsetVisitor extends AbstractVisitor {
 				((VarDefinition) s).setOffset(offset);	
 			}
 		}
+		
+		f.setTotalBytes(-offset);
 
 		return null;
 	}

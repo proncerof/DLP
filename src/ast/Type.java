@@ -23,5 +23,11 @@ public interface Type extends ASTNode {
     Type fieldAccess(String c);
     
     int numerberOfBytes();
+    
+    Type castTo(Type t);
+    
+    boolean isPrimitive();
+
+	char suffix();
 
 }

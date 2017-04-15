@@ -2397,7 +2397,26 @@ state 155
 	expression : expression . '[' expression ']'  (61)
 	expression : '(' built_in_type ')' expression .  (63)
 
-	.  reduce 63
+	AND  shift 107
+	OR  shift 108
+	EQUALS  shift 109
+	LTOE  shift 110
+	GTOE  shift 111
+	NOTEQUALS  shift 112
+	'>'  shift 114
+	'<'  shift 115
+	'+'  shift 116
+	'-'  shift 117
+	'*'  shift 118
+	'/'  shift 119
+	'%'  shift 120
+	'['  shift 121
+	'.'  shift 122
+	'='  reduce 63
+	']'  reduce 63
+	')'  reduce 63
+	','  reduce 63
+	';'  reduce 63
 
 
 state 156
@@ -2511,5 +2530,5 @@ state 164
 	.  reduce 38
 
 
-44 terminals, 24 nonterminals
+46 terminals, 24 nonterminals
 74 grammar rules, 165 states

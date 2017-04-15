@@ -1,26 +1,28 @@
-// * Global variables
-int i,n;
 char c;
-struct {
-  int intField;
-  double realField;
-} record;
+int a;
+double r;
 
-// * Functions
-double f(int a, double c) {
-  double real;
- if(1){
-  real = c;
-  } else
-  return 1.3;
-  i = a;
-  
-  return 2.2;
-}
-
-// * Main program
 void main() {
-  int i;
-  double r;
-  write i, f(n,r), record.intField, record.realField;
+	int a, i;
+	
+	c='a';
+	write c,'\n';
+
+	a=1;
+	i=(int)'0'*3;
+	write a, ' ', i, '\n';
+		
+	read r;
+	write (double)2*r, '\n';
+	
+	write (double)3-4.5, ' ', 
+            (double)'0'/48.0, ' ',
+            '0'%'1', ' ',
+            '0'+'1', '\n';
+	write 1<2, ' ',
+	      4>=3, ' ',
+	      5==5, ' ',
+	      1&&2, ' ',
+	      0||3, ' ',
+	      !0, '\n';
 }

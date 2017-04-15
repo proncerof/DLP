@@ -1,6 +1,7 @@
 import java.io.FileReader;
 import java.io.IOException;
 
+import codeGeneration.ExecuteCGVisitor;
 import errorhandler.EH;
 import introspector.model.IntrospectorModel;
 import introspector.view.IntrospectorTree;
@@ -33,10 +34,12 @@ public class Main {
 		Visitor iv = new IdentificationVisitor();
 		Visitor tc = new TypeCheckingVisitor();
 		Visitor ov = new OffsetVisitor();
+		Visitor cg = new ExecuteCGVisitor(args[0], args[1]);
 		
 		parser.getAST().accept(iv, null);
 		parser.getAST().accept(tc, null);
 		parser.getAST().accept(ov, null);
+		parser.getAST().accept(cg, null);
 						
 		if(EH.getEH().anyError()){			
 			EH.getEH().showErrors();
