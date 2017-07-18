@@ -1,2 +1,2 @@
 # DLP
-Programming languages design repository
+Repositorio para la asignatura de Diseño de Lenguajes de Programacion
